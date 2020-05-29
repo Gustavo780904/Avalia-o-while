@@ -38,7 +38,7 @@ public class AvaliacaoWhile {
 			custoTotal = custoTotal + custoIndividual;
 			System.out.print("Digitar outro (S/N)? ");
 			digitarOutro = sc.next().charAt(0);
-		} while (digitarOutro == 'S');
+		} while (digitarOutro == 'S'|| digitarOutro == 's');
 
 		do {
 			System.out.printf("%nMENU%n");
