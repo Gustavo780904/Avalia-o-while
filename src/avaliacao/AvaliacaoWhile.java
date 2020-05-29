@@ -12,8 +12,9 @@ public class AvaliacaoWhile {
 		int opcao = 0, totalHoras = 0;
 		String nome;
 		double horasTrabalhadas = 0.0, valorHora = 0.0;
-		double custoIndividual = 0.0, custoTotal = 0.0;
+		double custoIndividual = 0.0, custoTotal = 0.0, ganhoMax = 0.0;
 		char digitarOutro;
+		String ganhouMais = null;
 
 		do {
 			System.out.print("Nome: ");
@@ -28,6 +29,12 @@ public class AvaliacaoWhile {
 				valorHora = sc.nextDouble();
 			} while (valorHora < 0);
 			custoIndividual = horasTrabalhadas * valorHora;
+			
+			if (custoIndividual > ganhoMax) {
+				ganhoMax = custoIndividual;
+				ganhouMais = nome;
+			}
+			
 			custoTotal = custoTotal + custoIndividual;
 			System.out.print("Digitar outro (S/N)? ");
 			digitarOutro = sc.next().charAt(0);
@@ -43,13 +50,17 @@ public class AvaliacaoWhile {
 			opcao = sc.nextInt();
 			
 			if(opcao == 1) {
-				System.out.println("Total de horas = " + totalHoras);
+				System.out.printf("%nTotal de horas = " + totalHoras);
+				System.out.println(" ");
 			} else if (opcao == 2) {
 				System.out.printf("%nCusto total = R$ %.2f%n", custoTotal);
+			} else if (opcao == 3) {
+				System.out.printf("%nPessoa que ganhou mais: " + ganhouMais);
+				System.out.println("");
 			}
 			
 		} while (opcao != 4);
-
+		System.out.printf("%nFIM DO PROGRAMA!");
 		sc.close();
 
 	}
